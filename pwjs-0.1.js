@@ -1,23 +1,39 @@
 
+/**
+ * pw.js-library: contains some commen helper-function-shortcuts
+ */
 var pw = (new function() {
-  
-  /// get by
-  
-  // get by classname
+
+  /**
+   * Contains functions to get an element by certain properties
+   */
   this.by = new function() {
+    
+    /**
+     * Get all objects under a certain parent by className
+     * @param {Object} parent
+     * @param {Number} className
+     * @return {Object[]}
+     */
     this.cn = function(parent, className) {
       return parent.getElementsByClassName(className);
     }
 
-    // get by id
+    /**
+     * Get one certain object by its id
+     * @param {string} id
+     * @return {Object}
+     */
     this.id = function(id) {
       return document.getElementById(id); 
     }
   }
   
-  /// class
-  
-  // class add
+  /**
+   * Add a class to an object
+   * @param {Object} element
+   * @param {Number} className
+   */
   this.ca = function(element, className) {
     var currentClassName = element.className;
     
@@ -30,12 +46,21 @@ var pw = (new function() {
     }
   }
   
-  // class has
+  /**
+   * Does an object have a certain class?
+   * @param {Object} element
+   * @param {Number} className
+   * @return {Boolean}
+   */
   this.ch = function(element, className) {
     return ((" " + element.className + " ").replace(/[\t\r\n\f]/g, " ").indexOf(" " + className + " ") > -1);
   }
   
-  // class remove
+  /**
+   * Removes a class from an object
+   * @param {Object} element
+   * @param {Number} className
+   */
   this.cr = function(element, className) {
     var currentClassName = element.className;
  
@@ -56,27 +81,11 @@ var pw = (new function() {
     element.className = newClasses.join(" ");
   }
   
-  /// events
-  
-  // event add
-  this.ea = new function() {
-    // mouse over
-    this.mo = function(element, fn) {
-      element.addEventListener("mouseover", fn, false);
-    }
-  }
-  
-  // event call
-  this.ec = new function() {
-    // click
-    this.ck = function(element) {
-      element.onclick.apply(element);
-    }
-  }
-  
-  /// wrap
-  
-  // wrap create
+  /**
+   * Wrap an object with a div-block, returning it
+   * @param {Object} element
+   * @return {Object}
+   */
   this.wc = function(element) {
     var wrap = document.createElement("div");
     var parent = element.parentNode;
@@ -92,7 +101,10 @@ var pw = (new function() {
     return wrap;
   }
   
-  // wrap remove
+  /**
+   * Unwraps an object; Practically moves it outside of its parent and removes that
+   * @param {Object} element
+   */
   this.wr = function(element) {
     var wrap = element.parentNode;
     var parent = wrap.parentNode;
@@ -105,9 +117,12 @@ var pw = (new function() {
     parent.removeChild(wrap);
   }
   
-  /// ajax
-  
-  // ajax call
+  /**
+   * Create an ajax call
+   * @param {string} callType - Either 'GET' or 'POST'
+   * @param {string} url - url to call
+   * @param {pwAjaxCallback} fn
+   */
   this.xc = function(callType, url, fn) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open(callType, url, true);
@@ -120,13 +135,27 @@ var pw = (new function() {
     }
   }
   
-  // ajax get
+  /**
+   * Create an ajax call using 'GET'-callType
+   * @param {string} url - url to call
+   * @param {pwAjaxCallback} fn
+   */
   this.xg = function(url, fn) {
     this.xc('GET', url, fn);
   }
   
-  // ajax post
+  /**
+   * Create an ajax call using 'POST'-callType
+   * @param {string} url - url to call
+   * @param {pwAjaxCallback} fn
+   */
   this.xp = function(url, fn) {
     this.xc('POST', url, fn);
   }
 }());
+
+/**
+ * A callback function called by the ajax-shortcut-functions of the pw.js-library
+ * @callback pwAjaxCallback
+ * @param {string} responseText
+ */
