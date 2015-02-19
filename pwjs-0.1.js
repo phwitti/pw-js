@@ -23,7 +23,7 @@ THE SOFTWARE.
 */
 
 /**
- * pw.js-library: contains some commen helper-function-shortcuts
+ * pw-js-library: contains some common helper-function-shortcuts
  */
 var pw = (new function() {
 
