@@ -1,6 +1,6 @@
 # pw-js
 
-pw.js could propably be defined as 'minimal two-chars helper-library' for javascript. It has no dependencies is pretty small and provides shortcuts for some of the most common javascript calls and snippets. The library was created for a small private project and raises no claim for completeness. Still, if you think it's useful for you, feel free to use it. If you think it should provide certain additional shortcuts feel free to comment or fork and create pull requests.
+pw-js could propably be defined as 'minimal two-chars helper-library' for javascript. It has no dependencies is pretty small and provides shortcuts for some of the most common javascript calls and snippets. The library was created for a small private project and raises no claim for completeness. Still, if you think it's useful for you, feel free to use it. If you think it should provide certain additional shortcuts feel free to comment or fork and create pull requests.
 
 # Currently provided shortcuts
 
