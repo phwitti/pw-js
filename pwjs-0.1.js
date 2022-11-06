@@ -182,3 +182,5 @@ var pw = (new function() {
  * @callback pwAjaxCallback
  * @param {string} responseText
  */
+
+export default pw;
